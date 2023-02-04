@@ -7,15 +7,43 @@ class ScrollScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          //Background image
-          const Background(),
-
-          // Main content
-          MainContent(),
-        ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [
+              0.5,0.5
+            ],
+            colors: [
+              Color(0xff5EE8C5),
+              Color(0xff30BAd6)
+            ],
+          ),
+        ),
+        child: PageView(
+          physics: const BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          children: [
+          Page1(),
+        ],),
       ),
+    );
+  }
+}
+
+class Page1 extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        //Background image
+        const Background(),
+
+        // Main content
+        MainContent(),
+      ],
     );
   }
 }
@@ -23,7 +51,7 @@ class ScrollScreen extends StatelessWidget {
 class MainContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final textStyle = TextStyle(
+    final textStyle = const TextStyle(
         fontSize: 60, fontWeight: FontWeight.bold, color: Colors.white);
     return SafeArea(
       bottom: false,
@@ -31,7 +59,7 @@ class MainContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Text(
@@ -45,7 +73,7 @@ class MainContent extends StatelessWidget {
             Expanded(
               child: Container(),
             ),
-            Icon(
+            const Icon(
               Icons.keyboard_arrow_down,
               size: 100,
               color: Colors.white,
@@ -67,5 +95,32 @@ class Background extends StatelessWidget {
         height: double.infinity,
         alignment: Alignment.topCenter,
         child: const Image(image: AssetImage('assets/scroll-1.png')));
+  }
+}
+
+
+
+class Page2 extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: const Color(0xff30BAd6),
+      child:  Center(child: 
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 40),
+        child: TextButton(onPressed: null,
+        style: TextButton.styleFrom(
+          backgroundColor: const Color(0xff30BAd6),
+          shape: const StadiumBorder(),
+        ),child: const Text("Bienvenido",style: TextStyle(color:Colors.white,fontSize: 20),),
+        
+        ),
+      ),
+
+      
+      
+      ),
+    );
   }
 }
