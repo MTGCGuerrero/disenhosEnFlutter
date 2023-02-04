@@ -8,7 +8,7 @@ class ScrollScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -39,7 +39,7 @@ class Page1 extends StatelessWidget {
     return Stack(
       children: [
         //Background image
-        const Background(),
+         const Background(),
 
         // Main content
         MainContent(),
@@ -51,7 +51,7 @@ class Page1 extends StatelessWidget {
 class MainContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final textStyle = const TextStyle(
+    const textStyle = TextStyle(
         fontSize: 60, fontWeight: FontWeight.bold, color: Colors.white);
     return SafeArea(
       bottom: false,
@@ -62,11 +62,11 @@ class MainContent extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Text(
+            const Text(
               "11",
               style: textStyle,
             ),
-            Text(
+            const Text(
               "Miercoles",
               style: textStyle,
             ),
@@ -101,6 +101,8 @@ class Background extends StatelessWidget {
 
 
 class Page2 extends StatelessWidget {
+  const Page2({super.key});
+
 
   @override
   Widget build(BuildContext context) {
